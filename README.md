@@ -22,7 +22,8 @@ Thanks to [Insert_name] for the Libre font used:
   * 18650s make for easy battery replacement/upgrade.
 
 I printed this using Matte PETG filament. PLA would be OK too. Printing in black looks good, try other colours at your own risk, they can look tacky.
-Printed on a 300x300mm printer, I needed to split into multiple parts then screw and plastic-weld them together. 
+Printed on a 300x300mm printer, I needed to split into multiple parts then screw and plastic-weld them together. 100% Infill is utter over kill, but that's what I used.  
+Slicer: PrusaSlicer (Flatpak)
 
 # Parts required:
   * 1kg filament. PETG, or otherwise.
