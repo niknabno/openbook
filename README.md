@@ -33,12 +33,23 @@ Printed on a 300x300mm printer, I needed to split into multiple parts then screw
   * 1080p IPS panel MODEL:
   * 30Pin EDP CABLE
   * Panel mount HDMI port LINK:
+  * Panel mount USB-C breakout.
   * M3 Heat Press threaded inserts LINK:
   * Lots of M3, M2.5 & M4 srews, along with nuts. LINK:
   * SPST key switch. LINK:
   * SPST Momentary nuclear launch button. LINK:
   * Super Short and thin Micro HDMI > HDMI cable. LINK:
-  * Short and thin Micro HDMI > HDMI cable. LINK: 
+  * Short and thin Micro HDMI > HDMI cable. LINK:
+  * HDMI > EDP adapter board. However, i'm aware a DP > EDP is better. LINK:
+  * M3 hex standoffs for above board. LINK:
+  * HDMI > MINI HDMI ADAPTOR. Mini hdmi cables of the right sort are hard to find. LINK:
+  * Stiff (non laptop) hinges. LINK:
+  * Handle, I have no specific model, so if unsure leave out.
+  * 3S balanced BMS w/screw mounts. LINK:
+  * 3S 18650 holder * 2. LINK:
+  * Ajustable switching buck converter. LINK:
+  * FPC breakout board. Link:
+  * Mean as sunnies to complete the look
 
 # Tools required:
   * Access to an adaqautely sized FDM 3d printer.
