@@ -1,10 +1,14 @@
 # openBook
-openBook is 3d printed laptop based on a eftpos-card sized SBC and 18650s. I should've been using git for this from the start ):\
-I use this as my school, work, and hobby laptop however it is far from ideal for most people.\
-It's thick, heavy and janky. I don't consider this a cyber_deck but it's no anyon_e either.\
+openBook is 3d printed laptop based on a eftpos-card sized SBC and 18650s. I should've been using git for this from the start ):  
 
-It was made by me, niknabno. I made the models in openScad, as I found FreeCAD confusing. However I'm not a good programmer and the technical debt was insane.\
-I made everything a literal and never got around the fixing it. PAIN. Utterly my fault, but none the less I'm looking at FOSS GUI CAD software now.\
+I use this as my school, work, and hobby laptop however it is far from ideal for most people.  
+
+It's thick, heavy and janky. I don't consider this a cyber_deck but it's no anyon_e either.  
+
+It was made by me, niknabno. I made the models in openScad, as I found FreeCAD confusing. However I'm not a good programmer and the technical debt was insane.  
+
+I made everything a literal and never got around the fixing it. PAIN. Utterly my fault, but none the less I'm looking at FOSS GUI CAD software now.  
+
 
 Thanks to [Insert_name] for the Libre font used:
 
