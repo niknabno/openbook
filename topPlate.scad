@@ -1,0 +1,150 @@
+$fn = 90;
+
+l = 340;
+w = 220;
+h = 2;
+
+//3s bat holder
+BAT_W = 62.5; 
+BAT_H = 77.5;
+
+BAT_HOLES_DISTANCE = 40;
+BAT_X_OFFSET = 30;
+
+
+LARGE_INTAKE_R = 4.65;
+
+cutoutL = 150;
+cutoutW =200;
+cutoutH = 6;
+
+LAPTOP_EAST = l/2;
+LAPTOP_WEETBIX = -l/2;
+LAPTOP_NORTH = w/2;
+LAPTOP_SOUTH = -w/2;
+
+//How thick the kb + tp plate will be
+keyboardPlateW = 2;
+
+sqrSupportZ = -h/3-keyboardPlateW;
+sqrSupportH = 21;
+
+//Square supports prevent the walls from flexing
+sqrSupportW = 5;
+SQR_SUPPORT_L = 10;
+LARGE_SQR_SUPPORT_W = 15;
+
+//IEC AC connecter
+IEC_W = 27.5;
+IEC_H = 16.5;
+IEC_HOLES_DISTANCE = 40;
+
+IEC_Y = w/2-54.5;
+
+
+difference() {
+    minkowski() {
+        cube([l, w, h], center=true);
+    };
+    //wall w/hinges is 1.5mm thicker
+    translate([-l/2, w/2-2, -5]) cube([l,w,10]);
+   
+	for(i = [0 : 1]) {      
+            //Inset
+            translate([-BAT_X_OFFSET-BAT_HOLES_DISTANCE/2, -w/2+51.25, -10])
+            cube([BAT_W, BAT_H, 20], center=true);
+            translate([BAT_X_OFFSET+BAT_HOLES_DISTANCE/2, -w/2+51.25, -10])
+            cube([BAT_W, BAT_H, 20], center=true);
+      }
+      
+      
+      
+
+     translate([-40, 70, -5]) linear_extrude(10) text("VOID-FUCKER", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
+  
+      
+     
+
+     
+      //Bottom intake on eastSide
+    	for(a = [0 : 1 ]) {
+        	for(i = [0 : 4]) {
+            	translate([(i*11)+LAPTOP_EAST-73, (a*20.5)+55, -20]) largeIntake();
+        	}
+    	}
+        
+        for(a = [0 : 1 ]) {
+        	for(i = [0 : 4]) {
+            	translate([(i*11)+LAPTOP_EAST-67, (a*20.5)+65, -20]) largeIntake();
+        	}
+    	}
+        
+      
+      
+        //West intake
+        for(a = [0 : 1 ]) {
+        	for(i = [0 : 2]) {
+            	translate([(i*11)+LAPTOP_WEETBIX+40, (a*20.5)+25, -20]) rotate(0) largeIntake();
+        	}
+    	}
+        
+        for(a = [0 : 1 ]) {
+        	for(i = [0 : 2]) {
+            	translate([(i*11)+LAPTOP_WEETBIX+32.5, (a*20.5)+15, -20]) rotate(0) largeIntake();
+        	}
+    	}
+        
+        
+        //Center
+         for(a = [0 : 1 ]) {
+        	for(i = [0 : 2]) {
+            	translate([(i*11)-40, (a*20.5)+25, -20]) rotate(0) largeIntake();
+        	}
+    	}
+        
+        for(a = [0 : 1 ]) {
+        	for(i = [0 : 2]) {
+            	translate([(i*11)-47.5, (a*20.5)+15, -20]) rotate(0) largeIntake();
+        	}
+    	}
+        
+        cornerSqr(-l/2, -w/2);
+        cornerSqr(l/2-12, w/2-12);
+        cornerSqr(l/2-12, -w/2);
+        cornerSqr(-l/2, w/2-12);
+        
+        translate([0, LAPTOP_NORTH-sqrSupportW-1.85, sqrSupportZ]) m3Hole();
+        translate([0, LAPTOP_SOUTH+sqrSupportW, sqrSupportZ]) m3Hole();
+        
+        translate([LAPTOP_WEETBIX + LARGE_SQR_SUPPORT_W/2-2, 0, sqrSupportZ]) m3Hole();
+        translate([LAPTOP_EAST-LARGE_SQR_SUPPORT_W/2+2, 0, sqrSupportZ]) m3Hole();
+        translate([0, 0, -3]) m3Hole();
+        
+        
+        
+        
+        
+        
+       //for the iec plug
+       translate([-l/2-1, IEC_Y-3, -5]) cube([6, IEC_W+6, IEC_H]);
+        
+       //For the edp cable
+       translate([-62, w/2-4, -4]) cube([18, 1.25, IEC_H]);
+       
+       }
+
+module m3Hole() {
+     translate([0,0, 2.917]) cylinder(95, 3, 3);
+     cylinder(25, 1.85, 1.85, center=true);
+}
+
+module largeIntake() {
+    cylinder(25, LARGE_INTAKE_R, LARGE_INTAKE_R, $fn = 6);
+}
+
+//Designed to support KB+TP & M3 heatpress threaded inserts.
+module cornerSqr(x, y) {
+      translate([x+6,y+6, 30]) cylinder(95, 1.85, 1.85, center=true);
+      translate([x+6,y+6, 0.25]) cylinder(95, 3, 3);
+        
+}
