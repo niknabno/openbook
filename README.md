@@ -1,7 +1,12 @@
 # openBook
-openBook is 3d printed laptop. Based on a eftpos-card sized SBC and 18650s. I should've been using git for this from the start ):
+openBook is 3d printed laptop based on a eftpos-card sized SBC and 18650s. I should've been using git for this from the start ):
 I use this as my school, work, and hobby laptop however it is far from ideal for most people.
-It's thick, heavy and janky.
+It's thick, heavy and janky. I don't consider this a cyber_deck but it's no anyon_e either.
+
+It was made by me, niknabno. I made the models in openScad, as I found FreeCAD confusing. However I'm not a good programmer and the technical debt was insane.
+I made everything a literal and never got around the fixing it. PAIN. Utterly my fault, but none the less I'm looking at FOSS GUI CAD software now.
+
+Thanks to [Insert_name] for the Libre font used:
 
 # Unique features:
   * In build power supply, use an IEC C13/14 cord to charge.
@@ -27,7 +32,9 @@ Printed on a 300x300mm printer, I needed to split into multiple parts then screw
   * M3 Heat Press threaded inserts LINK:
   * Lots of M3, M2.5 & M4 srews, along with nuts. LINK:
   * SPST key switch. LINK:
-  * SPST Momentary nuclear launch button. LINK: 
+  * SPST Momentary nuclear launch button. LINK:
+  * Super Short and thin Micro HDMI > HDMI cable. LINK:
+  * Short and thin Micro HDMI > HDMI cable. LINK: 
 
 # Tools required:
   * Access to an adaqautely sized FDM 3d printer.
