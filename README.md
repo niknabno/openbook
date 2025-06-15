@@ -1,12 +1,10 @@
 # openBook
-openBook is a 3d printed laptop based on a eftpos-card sized SBC and 18650s. I should've been using git for this from the start ):  
+openBook is a 3d printed laptop based on a eftpos-card sized SBC and 18650s.  
 
 I use this as my school, work, and hobby laptop however it is far from ideal for most people.  
-
 It's thick, heavy and janky. I don't consider this a cyber_deck but it's no anyon_e either.  
 
 It was made by me, niknabno. I made the models in openScad, as I found FreeCAD confusing. However I'm not a good programmer and the technical debt was insane.  
-
 I made everything a literal and never got around to fixing it. PAIN. Utterly my fault, but nonetheless I'm looking at FOSS GUI CAD software now.  
 
 Very little electronics knowledge was needed to design this, as it’s not component level. However I did still learn a lot.
@@ -20,6 +18,7 @@ Thanks to [Insert_name] for the Libre font used:
   * Shine through backlight with custom logo/writing.
   * Upgrade easily with a new SBC.
   * 18650s make for easy battery replacement/upgrade.
+  * Decent I/O compared to most modern laptops.
 
 I printed this using Matte PETG filament. PLA would be OK too. Printing in black looks good, try other colours at your own risk, they can look tacky.
 Printed on a 300x300mm printer, I needed to split into multiple parts then screw and plastic-weld them together. 100% Infill is utter over kill, but that's what I used.  
