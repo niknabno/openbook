@@ -50,7 +50,9 @@ Printed on a 300x300mm printer, I needed to split into multiple parts then screw
   * 3S 18650 holder * 2. LINK:
   * Adjustable switching buck converter. LINK:
   * FPC breakout board. Link:
+  * RbPi Pico
   * Mean as sunnies to complete the look
+
 
 # Tools required:
   * Access to an adequately sized FDM 3d printer.
