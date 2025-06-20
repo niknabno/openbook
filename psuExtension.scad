@@ -5,17 +5,17 @@ h = 11.45;
 bracketW = 10;
 bracketL = 45;
 
-$fn = 50;
+$fn = 90;
 
 difference() {
     minkowski(){
         translate([0, 110-38, 10]) cube([l-3, w-3, h], center=true);
         cylinder(1.75, 4, 1);
     }
-   
-    
+
+
     translate([0, 110-38, 9.5]) cube([l-20, w, h], center=true);
-    
+
     translate([-62, 89, 0]) cylinder(90, 1.85, 1.85, center=true);
     translate([-62, 56, 0]) cylinder(90, 1.85, 1.85, center=true);
     translate([62, 56, 0]) cylinder(90, 1.85, 1.85, center=true);
@@ -47,8 +47,8 @@ difference() {
         cylinder(1, 1, 0);
     }
 
-    translate([18, 105, 5]) m3Hole();
-    translate([-18, 105, 5]) m3Hole();
+    translate([18, 104, 5]) m3Hole();
+    translate([-18, 104, 5]) m3Hole();
 }
 
 

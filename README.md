@@ -26,12 +26,12 @@ Slicer: PrusaSlicer (Flatpak)
 
 # Parts required:
   * 1kg filament. PETG, or otherwise.
-  * 5V Eftpos sized SBC (I recommend rockPi 5B, due to its' built in M.2 slot and improved efficiency and performance than a Raspberry Pi5).
+  * Eftpos sized SBC (I recommend rockPi 5B, due to its' built in M.2 slot and improved efficiency and performance than a Raspberry Pi5).
   * 3-6 18650s, of any capacity.
   * Panel Mount IEC C13 socket.
   * MeanWell IRM 12-60 ST power supply.
-  * 2230 or 2242 M.2 SSD (Optional for improved performance)
-  * 1080p IPS panel MODEL:
+  * 2230 or 2242 M.2 SSD (Optional for improved performance, rockPi only accepts 2230)
+  * 1080p IPS panel MODEL: N140HCA-EAB
   * 30P EDP CABLE ~15CM
   * Panel mount HDMI port LINK:
   * Panel mount USB-C breakout.
@@ -51,6 +51,7 @@ Slicer: PrusaSlicer (Flatpak)
   * Adjustable switching buck converter. LINK:
   * FPC breakout board. Link:
   * RbPi Pico
+  * Panel mount voltometre if you don't want to use the SBC to monior bats. (Voltometre also looks cooler)
   * Mean as sunnies to complete the look
 
 

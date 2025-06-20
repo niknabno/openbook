@@ -13,7 +13,7 @@ difference() {
 
     	//hollow out the rect
     	translate([0, -2, 3])
-    	cube([l, w-2, h+1], center = true);
+    	cube([l, w-3, h+1], center = true);
 
     	//start bottom intake on east side
     	for(a = [0 : 1 ]) {
@@ -195,7 +195,7 @@ difference() {
 	translate([0, w/2-38, -10])
 	{
         	cube([PSU_HOLE_L, PSU_HOLE_W, 10], center=true);
-        	translate([PSU_HOLE_L/2-7, 0, -10]) cube([2, 99, 40]);
+        	//translate([PSU_HOLE_L/2-7, 0, -10]) cube([2, 99, 40]);
     	}
 
 	//holes for the above cutout
@@ -207,8 +207,8 @@ difference() {
 	translate([-16, w/2-70, -20]) m3Hole();
     	translate([16, w/2-70, -20]) m3Hole();
 
-	translate([18, w/2-5, -20]) m3Hole();
-    	translate([-18, w/2-5, -20]) m3Hole();
+	translate([18, w/2-6, -20]) m3Hole();
+    	translate([-18, w/2-6, -20]) m3Hole();
 
 	//Holes for a door handle
 	rotate([90, 0, 0])
@@ -251,7 +251,7 @@ translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
 
 
 
-//Make handle fit better
+//make the door handle fit better
 translate([-17, LAPTOP_SOUTH-3, -11]) {
     translate([65, 0, 0]) cube([24,3,3]);
 }
@@ -259,7 +259,7 @@ translate([-17, LAPTOP_SOUTH-3, -11]) {
 translate([-7, LAPTOP_SOUTH-3, -11]) {
     translate([-65, 0, 0]) cube([24,3,3]);
 }
-    
+
 //spacers
 translate([l/2-24, w/2-3.5-17, -9.75]) {
     m3Extrude();
@@ -308,7 +308,7 @@ cornerSqr(l/2-12, -w/2);
 cornerSqr(-l/2, w/2-12);
 
 
-//Extra supports for screwing down top plate 
+//start extra supports for screwing down top plate
 translate([0, 0, sqrSupportZ]) {
 difference() {
     translate([ -LARGE_SQR_SUPPORT_W/2, LAPTOP_NORTH-SQR_SUPPORT_L]) sqrSupport(LARGE_SQR_SUPPORT_W, SQR_SUPPORT_L);
@@ -330,20 +330,37 @@ difference() {
     translate([LAPTOP_WEETBIX, -LARGE_SQR_SUPPORT_W/2]) sqrSupport(SQR_SUPPORT_L, LARGE_SQR_SUPPORT_W);
     translate([LAPTOP_WEETBIX + LARGE_SQR_SUPPORT_W/2-1.85, 0, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
 }
-
+//end extra supports
 
 
 
 translate([90, -w/2]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
 translate([-90, -w/2]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
 
-translate([75, w/2]) rotate([0, 0, 180]) scale([1.25,2,1]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
-translate([-68, w/2]) rotate([0, 0, 180]) scale([1.25,2,1]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+//supports north
+translate([75, w/2]) rotate([0, 0, 180])
+{
+	difference()
+	{
+		scale([1.25,2,1]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+		translate([TRI_SUPPORT_W/2*1.25, TRI_SUPPORT_L/2, 12])cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE);
+	}
+};
+
+translate([-68, w/2]) rotate([0, 0, 180])
+{
+	difference()
+	{
+		scale([1.25,2,1]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+		translate([TRI_SUPPORT_W/2*1.25, TRI_SUPPORT_L/2, 12])cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE);
+	}
+};
 
 
- 
-    translate([LAPTOP_WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();  
-    translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport(); 
+
+//supports west
+translate([LAPTOP_WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();
+translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
 }
 
 
@@ -427,7 +444,7 @@ module m2Hole() {
 
 //For pico
 module m2Holder() {
-    cylinder(4.25, 3, 3); 
+    cylinder(4.25, 3, 3);
     cylinder(6.25, 0.875, 0.875);
 }
 
@@ -443,7 +460,6 @@ module m3Extrude() {
     difference() {
         bigFeckingHole();
         translate([0, 0, -1]) m3Hole();
- 
     }
 }
 
