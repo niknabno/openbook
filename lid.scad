@@ -1,7 +1,6 @@
 $fn = 90;
 
-l = 340;
-w = 220;
+include<consts.scad>;
 h = 5;
 
 difference() {
