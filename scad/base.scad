@@ -231,7 +231,14 @@ Below is addative.
 //rotate([0, 180, 0]) translate([0,0,10])import("psuPlateLarge.stl");
 
 //Fits above rj-45 bcuz is shorter than the usb-a connecters
-translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
+if(PI_4_ETHERNET)
+{
+	translate([l/2, w/2-38, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
+}
+else
+{
+	translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
+}
 
 //IEC mounting spacers
 	rotate([0, 90, 0])  {

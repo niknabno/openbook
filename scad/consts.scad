@@ -3,7 +3,9 @@ w = 220;
 h = 22;
 
 //enable if using offical rasbPi5 cooler or using the pcb mount holes.
-OFFICAL_PI_5_COOLER = true;
+OFFICAL_PI_5_COOLER = false;
+PI_4_ETHERNET = true; //what side the rj-45 port of the sbc is on
+
 
 LAPTOP_NORTH = w/2;
 LAPTOP_SOUTH = -w/2;
