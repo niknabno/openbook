@@ -100,3 +100,22 @@ module iecCornerTriangle() {
             rotate([0,315, 90]) translate([0,-1,0])  cube([IEC_CORNER_TRIANGLE_SIZE*2, 5, IEC_CORNER_TRIANGLE_SIZE]);
         }
 }
+
+//provide a strong connection from hinge to lid
+module hingeMountPoint()
+{
+	difference()
+	{
+		minkowski()
+		{
+			translate([0, -w/2+4.5, 0]) cube([42, 6, 2.5]);
+			cylinder(0.000000000001, 3, 3);
+		}
+		translate([39, -w/2+7, -1]) m3Hole();
+		translate([3, -w/2+7, -1]) m3Hole();
+
+	}
+}
+
+
+

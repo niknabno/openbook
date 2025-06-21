@@ -1,46 +1,25 @@
 $fn = 90;
 
-l = 340;
-w = 220;
+
+include<consts.scad>;
+
 h = 2;
 
+
 //3s bat holder
-BAT_W = 62.5; 
+BAT_W = 62.5;
 BAT_H = 77.5;
 
-BAT_HOLES_DISTANCE = 40;
-BAT_X_OFFSET = 30;
-
-
-LARGE_INTAKE_R = 4.65;
-
 cutoutL = 150;
-cutoutW =200;
+cutoutW = 200;
 cutoutH = 6;
-
-LAPTOP_EAST = l/2;
-LAPTOP_WEETBIX = -l/2;
-LAPTOP_NORTH = w/2;
-LAPTOP_SOUTH = -w/2;
-
-//How thick the kb + tp plate will be
-keyboardPlateW = 2;
 
 sqrSupportZ = -h/3-keyboardPlateW;
 sqrSupportH = 21;
 
 //Square supports prevent the walls from flexing
-sqrSupportW = 5;
 SQR_SUPPORT_L = 10;
 LARGE_SQR_SUPPORT_W = 15;
-
-//IEC AC connecter
-IEC_W = 27.5;
-IEC_H = 16.5;
-IEC_HOLES_DISTANCE = 40;
-
-IEC_Y = w/2-54.5;
-
 
 difference() {
     minkowski() {

@@ -2,8 +2,8 @@ l = 340;
 w = 220;
 h = 22;
 
-//enable if using offical rasbPi5 cooler a or using the pcb mount holes.
-OFFICAL_PI_5_COOLER = true; 
+//enable if using offical rasbPi5 cooler or using the pcb mount holes.
+OFFICAL_PI_5_COOLER = true;
 
 LAPTOP_NORTH = w/2;
 LAPTOP_SOUTH = -w/2;
@@ -81,6 +81,6 @@ smallIntakeRadius = 0;
 
 HEATSET_INSERT_HOLE = 2.1; //the pilot hole for M3 heatpress inserts
 
-
+LARGE_INTAKE_R = 4.65;
 
 

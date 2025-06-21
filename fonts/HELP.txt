@@ -1,0 +1,8 @@
+To install on linux:
+(If you can't be botherd to find the right package on your system's manager)
+copy *.ttf to ~/.fonts (make the dir if required)
+cp *.ttf ~/.fonts
+then run:
+fc-cache -f -v
+to refresh.
+then reopen openScad.
