@@ -1,0 +1,7 @@
+/*
+This c programme reads the voltage of batterys connecter to gpio pins
+and converts it into a battery percentage. The battery percentage can
+be found by running this programme.
+
+Made by niknabno
+*/
