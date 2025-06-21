@@ -60,4 +60,5 @@ Slicer: PrusaSlicer (Flatpak)
   * Soldering iron.
   * Basic Phillips & flathead screwdrivers.
   * Strong double sided tape.
+  * OK with computers and Linux, or willing to learn
   * Ability to pull off a matrix trench coat and sunnies.
