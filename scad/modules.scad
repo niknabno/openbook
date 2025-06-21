@@ -63,7 +63,7 @@ module m4Hole() {
 }
 
 module bigFeckingHole() {
-     cylinder(1.5, 3.3, 3.30);
+     cylinder(1.5, 3.3, 3.3);
 }
 
 module m2Hole() {
@@ -111,11 +111,21 @@ module hingeMountPoint()
 			translate([0, -w/2+4.5, 0]) cube([42, 6, 2.5]);
 			cylinder(0.000000000001, 3, 3);
 		}
-		translate([39, -w/2+7, -1]) m3Hole();
-		translate([3, -w/2+7, -1]) m3Hole();
+		translate([39, -w/2+7, -1]) m4Hole();
+		translate([3, -w/2+7, -1]) m4Hole();
 
 	}
 }
 
 
-
+//m4 screw holes for hinge on the lid
+module lidHinge(x) {
+    translate([0, -w/2+4.5, -5]) {
+        translate([x, 2.5, 0]) {
+            m4Hole();
+        }
+        translate([x+36, 2.5, 0]) {
+            m4Hole();
+        }
+     }
+}

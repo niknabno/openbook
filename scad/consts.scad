@@ -83,4 +83,6 @@ HEATSET_INSERT_HOLE = 2.1; //the pilot hole for M3 heatpress inserts
 
 LARGE_INTAKE_R = 4.65;
 
-
+HINGE_AX = -143;
+HINGE_BX = 25;
+HINGE_CX = -61;
