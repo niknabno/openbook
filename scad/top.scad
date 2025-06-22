@@ -98,6 +98,11 @@ difference() {
         translate([LAPTOP_EAST-LARGE_SQR_SUPPORT_W/2+2, 0, sqrSupportZ]) m3Hole();
         translate([0, 0, -3]) m3Hole();
 
+	translate([75+TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2, -3]) m3Hole();
+	translate([-68-TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2, -3]) m3Hole();
+
+
+
 	//start screw indent for hinges
 	translate([HINGE_AX, LAPTOP_NORTH-8, -3]) screwIndent();
 	translate([HINGE_AX+36, LAPTOP_NORTH-8, -3]) screwIndent();

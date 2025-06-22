@@ -268,6 +268,7 @@ translate([-7, LAPTOP_SOUTH-3, -11]) {
     translate([-65, 0, 0]) cube([24,3,3]);
 }
 
+
 //spacers
 translate([l/2-24, w/2-3.5-17, -9.75]) {
     m3Extrude();
