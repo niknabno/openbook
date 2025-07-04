@@ -14,7 +14,7 @@ difference() {
 
     	//hollow out the rect
     	translate([0, -2, 3])
-    	cube([l, w-3, h+1], center = true);
+    	translate([0,1,0]) cube([l, w-3, h+1], center = true);
 
     	//start bottom intake on east side
     	for(a = [0 : 1 ]) {
@@ -65,7 +65,7 @@ difference() {
 	//Hinges
 	hinge(-143);
 	hinge(25);
-	hinge(-61);
+	smallHinge(-50);
 	//laptopHingeA(-75, LAPTOP_NORTH-27);
 	//Let hinge be a hinge
         //translate([LAPTOP_WEETBIX+37, LAPTOP_NORTH-1, SURFACE_MOUNT+2.5]) cube([32.8,8, 50]);
@@ -219,6 +219,12 @@ difference() {
     		translate([-65, -4, 100]) m3Hole();
             translate([65, 8, 100]) m3Hole();
 	}
+
+	//holes for pico
+	translate([picoX, picoY, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
+	translate([picoX+11.4, picoY, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
+	translate([picoX, picoY-47, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
+	translate([picoX+11.4, picoY-47, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
 }
 
 /*
@@ -280,11 +286,12 @@ translate([l/2-24, w/2-3.5-17, -9.75]) {
 }
 
 
-//Pico
+/*Pico
 translate([picoX, picoY, SURFACE_MOUNT]) m2Holder();
 translate([picoX+11.4, picoY, SURFACE_MOUNT]) m2Holder();
 translate([picoX, picoY-47, SURFACE_MOUNT]) m2Holder();
 translate([picoX+11.4, picoY-47, SURFACE_MOUNT]) m2Holder();
+*/
 
 //Join two halves of laptop w/M3 screws
 difference() {
@@ -371,3 +378,7 @@ translate([-68, w/2]) rotate([0, 0, 180])
 translate([LAPTOP_WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();
 translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
 }
+
+//bulb chargiung indicator holder
+translate([58, 70, SURFACE_MOUNT+2]) bulbHolder();
+

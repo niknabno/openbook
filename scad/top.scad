@@ -26,17 +26,15 @@ difference() {
     };
     //wall w/hinges is 1.5mm thicker
     translate([-l/2, w/2-2, -5]) cube([l,w,10]);
-   
-	for(i = [0 : 1]) {      
+
+	for(i = [0 : 1]) {
             //Inset
             translate([-BAT_X_OFFSET-BAT_HOLES_DISTANCE/2, -w/2+51.25, -10])
             cube([BAT_W, BAT_H, 20], center=true);
             translate([BAT_X_OFFSET+BAT_HOLES_DISTANCE/2, -w/2+51.25, -10])
             cube([BAT_W, BAT_H, 20], center=true);
       }
-      
-      
-      
+
 
      translate([-40, 70, -5]) linear_extrude(10) text("VOID-FUCKER", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
   
@@ -111,7 +109,7 @@ difference() {
 	translate([HINGE_BX+36, LAPTOP_NORTH-8, -3]) screwIndent();
 
 	translate([HINGE_CX, LAPTOP_NORTH-8, -3]) screwIndent();
-	translate([HINGE_CX+36, LAPTOP_NORTH-8, -3]) screwIndent();
+	translate([HINGE_CX+26, LAPTOP_NORTH-8, -3]) screwIndent();
 	//end screw intent for hinges
 
         //for the iec plug

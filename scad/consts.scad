@@ -3,8 +3,8 @@ w = 220;
 h = 22;
 
 //enable if using offical rasbPi5 cooler or using the pcb mount holes.
-OFFICAL_PI_5_COOLER = false;
-PI_4_ETHERNET = true; //what side the rj-45 port of the sbc is on
+OFFICAL_PI_5_COOLER = true;
+PI_4_ETHERNET = false; //what side the rj-45 port of the sbc is on
 
 
 LAPTOP_NORTH = w/2;
@@ -87,4 +87,8 @@ LARGE_INTAKE_R = 4.65;
 
 HINGE_AX = -143;
 HINGE_BX = 25;
-HINGE_CX = -61;
+HINGE_CX = -50;
+
+BULB_HOLDER_W = 21;
+BULB_HOLDER_H = 10;
+BULB_HOLES_DIST = 13;

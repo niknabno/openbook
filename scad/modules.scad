@@ -47,6 +47,14 @@ module hinge(x) {
     }
 }
 
+module smallHinge(x) {
+	rotate([90, 0, 0]) {
+		translate([0, h/2-10.5, -w/2-20]) {
+			translate([x, 2.5, 0]) m4Hole();
+			translate([x+26, 2.5, 0]) m4Hole();
+		}
+	}
+}
 //M3 Hole. 1.85mm radius for telerance.
 //Drill the pi w/m3 drill bit to widen annoying m2.5 hole
 module m3Hole() {
@@ -67,7 +75,7 @@ module bigFeckingHole() {
 }
 
 module m2Hole() {
-     cylinder(6, 1.35, 1.35);
+     cylinder(10, 1.35, 1.35);
 }
 
 
@@ -117,6 +125,21 @@ module hingeMountPoint()
 	}
 }
 
+module smallHingeMountPoint()
+{
+	difference()
+	{
+		minkowski()
+		{
+			translate([0, -w/2+4.5, 0]) cube([32, 6, 2.5]);
+			cylinder(0.000000000000001, 3, 3);
+		}
+		translate([29, -w/2+7, -1]) m4Hole();
+		translate([3, -w/2+7, -1]) m4Hole();
+
+	}
+
+}
 
 //m4 screw holes for hinge on the lid
 module lidHinge(x) {
@@ -128,4 +151,44 @@ module lidHinge(x) {
             m4Hole();
         }
      }
+}
+
+module smallLidHinge(x) {
+    translate([0, -w/2+4.5, -5]) {
+        translate([x, 2.5, 0]) m4Hole();
+        translate([x+26, 2.5, 0]) m4Hole();
+     }
+}
+
+
+module bulbHolder()
+{
+	difference()
+	{
+		cube([BULB_HOLDER_W, 5, BULB_HOLDER_H]);
+		rotate([90, 0, 0])
+		{
+			translate([4, BULB_HOLDER_H/2, -6])
+			{
+				m2Hole();
+				translate([BULB_HOLES_DIST, 0, 0]) m2Hole();
+			}
+		}
+	}
+}
+
+//mounting holes for IPS panel
+module screenMountHoles()
+{
+	translate([0,0,0])
+	{
+		translate([-124.75,0,0]) m2Hole();
+		translate([124.75,0,0]) m2Hole();
+	}
+	translate([0, 192, 0])
+	{
+		translate([-138.5,0,0]) m2Hole();
+		translate([138.5,0,0]) m2Hole();
+	}
+
 }

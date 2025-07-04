@@ -11,19 +11,19 @@ difference()
 	minkowski()
 	{
 		cube([l, w, h], center=true);
-        	cylinder(3, 2, 3);
+        	cylinder(4, 0.00001, 3);
     	};
 
-    	translate([0, 0, 5]) cube([l+7, w+7, 3], center=true);//the rounding above adds height: so me cut that extra height off
-    	translate([LAPTOP_WEETBIX+5,LAPTOP_SOUTH+2,0]) cube([l-22, w-5, 4]); //main cutout
+    	translate([0, 0, 8]) cube([l+17, w+17, 9], center=true);//the rounding above adds height: so me cut that extra height off
+	translate([LAPTOP_WEETBIX+11,LAPTOP_SOUTH+4.5,0]) cube([l-22, w-9.5, 4]); //main cutout
 
     	lidHinge(HINGE_AX);
     	lidHinge(HINGE_BX);
-    	lidHinge(HINGE_CX);
+    	smallLidHinge(HINGE_CX);
 
 	//cutout to allow hinge barrel to fit
-    	translate([-151, -w/2-15, -5]) cube([220, 12.75, 30]);
-    	translate([-151, -w/2-10, 0]) cube([220, 12.75, 30]);
+    	translate([-151, -w/2-15, -5]) cube([220, 13, 30]);
+    	translate([-151, -w/2-10, 0]) cube([220, 14.75, 30]);
 
     	//capital letters show up best in this font
     	rotate([0, 180, 0]) {
@@ -42,12 +42,27 @@ difference()
     		translate([-100, -4, -5]) cylinder(90, 2, 2);
     		translate([-10, -4, -5]) cylinder(90, 2, 2);
     		translate([10, -4, -5]) cylinder(90, 2, 2);
+
+
    }
+	translate([0, LAPTOP_SOUTH+20,-5]) screenMountHoles();
 }
+
+/*difference()
+{
+	translate([-30, -w/2+4, -1.25]) cube([242, 15, 2.5], center=true);
+	lidHinge(HINGE_AX);
+	lidHinge(HINGE_BX);
+	smallLidHinge(HINGE_CX);
+}
+*/
+//translate([69, -w/2-3.5, -2.5]) cube([25,8,6]);
+//translate([-161, -w/2-3.5, -2.5]) cube([10,8,6]);
+
 
 //ensure strong conection with hinge and lit
 translate([HINGE_BX-3, 0, 0]) hingeMountPoint();
-translate([HINGE_CX-3, 0, 0]) hingeMountPoint();
+translate([HINGE_CX-3, 0, 0]) smallHingeMountPoint();
 translate([HINGE_AX-3, 0, 0]) hingeMountPoint();
 
 

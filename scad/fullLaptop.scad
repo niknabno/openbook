@@ -6,7 +6,7 @@ rotate([5, 0, 0])
 		//rotate([180,0,0]) translate([0,0,-h+4.5]) import("../stl/lid.stl");
 		import("../stl/base.stl");
 		rotate([0,180,0]) translate([0,0,7]) import("../stl/psu.stl");
-		translate([0,-1,h/2+2]) import("../stl/top.stl");
+		translate([0,0.5,h/2+2]) import("../stl/top.stl");
 	};
 
 	rotate([-10, 0, 0])
