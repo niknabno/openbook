@@ -36,7 +36,7 @@ difference() {
       }
 
 
-     translate([-40, 70, -5]) linear_extrude(10) text("VOID-FUCKER", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
+     translate([-40, 70, -5]) linear_extrude(10) text("VIOLENCE?", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
   
       
      

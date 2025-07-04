@@ -380,5 +380,6 @@ translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
 }
 
 //bulb chargiung indicator holder
-translate([58, 70, SURFACE_MOUNT+2]) bulbHolder();
+translate([-109, 90, SURFACE_MOUNT+2]) bulbHolder();
+
 

@@ -45,8 +45,14 @@ difference()
 
 
    }
-	translate([0, LAPTOP_SOUTH+20,-5]) screenMountHoles();
+	translate([0, LAPTOP_SOUTH+25, -5])
+	{
+		screenMountHoles();
+		translate([-138.5-3, 192-7, 5]) cube([12,10,5]);
+		translate([138.5-7, 192-7, 5]) cube([12,10,5]);
+	}
 }
+
 
 /*difference()
 {
