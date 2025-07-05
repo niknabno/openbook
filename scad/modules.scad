@@ -168,7 +168,7 @@ module bulbHolder()
 		cube([BULB_HOLDER_W, 5, BULB_HOLDER_H]);
 		rotate([90, 0, 0])
 		{
-			translate([4, BULB_HOLDER_H/1.5, -6])
+			translate([4, BULB_HOLDER_H/2, -6])
 			{
 				m2Hole();
 				translate([BULB_HOLES_DIST, 0, 0]) m2Hole();
@@ -200,12 +200,12 @@ module voltometreMount()
 {
 	difference()
 	{
-		translate([2,0,h/2+2.5]) cube([VOLT_H, 8, 3.5]);
+		translate([2,0,h/2+2.5]) cube([7.75, 16, 3.5]);
 		translate([VOLT_W/2,VOLT_W/2,0]) m2Hole();
     	}
 	difference()
         {
-                translate([26+2,0,h/2+2.5]) cube([VOLT_H, 8, 3.5]);
+                translate([26+1.25,0,h/2+2.5]) cube([7.5, 16, 3.5]);
                 translate([26+VOLT_W/2,VOLT_W/2,0]) m2Hole();
       	}
 }

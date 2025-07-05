@@ -271,10 +271,10 @@ else
 }
 
 //voltometre mount point
-translate([VOLT_X,VOLT_Y,SURFACE_MOUNT+2])
+translate([VOLT_X-1,VOLT_Y,SURFACE_MOUNT+1.5])
 {
 	voltometreMount();
-        translate([7,0,17]) cube([22, 10, 6]);
+        //translate([7,0,17]) cube([22, 10, 6]);
 }
 
 
@@ -386,8 +386,8 @@ difference() {
 
 
 
-translate([90, -w/2]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
-translate([-90, -w/2]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+translate([90-TRI_SUPPORT_W, LAPTOP_SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+translate([-90, LAPTOP_SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
 
 //supports north
 translate([75, w/2]) rotate([0, 0, 180])

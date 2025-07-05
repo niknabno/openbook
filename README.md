@@ -9,7 +9,6 @@ I made everything a literal and never got around to fixing it. PAIN. Utterly my 
 
 Very little electronics knowledge was needed to design this, as it’s not component level. However I did still learn a lot.
 
-Thanks to [Insert_name] for the Libre font used:
 
 # Unique features:
   * In built power supply, use an IEC C13/14 cord to charge.
