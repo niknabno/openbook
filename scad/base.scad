@@ -66,9 +66,9 @@ difference() {
 	translate([-110, 75, -h]) cube([4,2,40]);
 
 	//Hinges
-	hinge(-143);
-	hinge(25);
-	smallHinge(-50);
+	hinge(HINGE_AX);
+	hinge(HINGE_BX);
+	smallHinge(HINGE_CX);
 	//laptopHingeA(-75, LAPTOP_NORTH-27);
 	//Let hinge be a hinge
         //translate([LAPTOP_WEETBIX+37, LAPTOP_NORTH-1, SURFACE_MOUNT+2.5]) cube([32.8,8, 50]);
@@ -270,6 +270,13 @@ else
 	translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
 }
 
+//voltometre mount point
+translate([VOLT_X,VOLT_Y,SURFACE_MOUNT+2])
+{
+	voltometreMount();
+        translate([7,0,17]) cube([22, 10, 6]);
+}
+
 
 //fits above daughter board
 translate([-l/2-3, -w/2+23, -4.5]) cube([3, 43, 5.5]);
@@ -408,7 +415,7 @@ translate([LAPTOP_WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();
 translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
 }
 
-//bulb chargiung indicator holder
+//bulb charging indicator holder
 translate([-109, 90, SURFACE_MOUNT+2]) bulbHolder();
 
 

@@ -36,7 +36,7 @@ difference() {
       }
 
 
-     translate([-40, 70, -5]) linear_extrude(10) text("VIOLENCE?", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
+     translate([-40, 70, -5]) linear_extrude(10) text("VOID_HEART", size=18, spacing=1.16, halign="center", font =  "Plaster:style=Regular"); 
   
       
      
@@ -117,6 +117,12 @@ difference() {
 
         //For the edp cable
         translate([-62, w/2-4, -4]) cube([18, 1.25, IEC_H]);
+
+	//for voltometre
+	translate([VOLT_X+((VOLT_HOLE_DIST-VOLT_L)/2), VOLT_Y, -2])
+	{
+		cube([VOLT_L, VOLT_W, VOLT_H]);
+	}
 
        }
 

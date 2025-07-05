@@ -75,7 +75,7 @@ module bigFeckingHole() {
 }
 
 module m2Hole() {
-     cylinder(10, 1.35, 1.35);
+     cylinder(90, 1.35, 1.35);
 }
 
 
@@ -193,4 +193,19 @@ module screenMountHoles()
 		translate([138.5,0,0]) m2Hole();
 	}
 
+}
+
+
+module voltometreMount()
+{
+	difference()
+	{
+		translate([2,0,h/2+2.5]) cube([VOLT_H, 8, 3.5]);
+		translate([VOLT_W/2,VOLT_W/2,0]) m2Hole();
+    	}
+	difference()
+        {
+                translate([26+2,0,h/2+2.5]) cube([VOLT_H, 8, 3.5]);
+                translate([26+VOLT_W/2,VOLT_W/2,0]) m2Hole();
+      	}
 }
