@@ -181,6 +181,8 @@ difference() {
 	{
     		//Key
     		translate([-2, -20, l/2-20]) cylinder(90, 6.5, 6.5);
+		//rim cutout
+		translate([1.5, 22, l/2-7]) cube(14, center = true);
     		//Red Button
     		translate([-1, 22, l/2-20]) cylinder(90, 6.5, 6.5);
 	}
@@ -228,9 +230,17 @@ difference() {
 	rotate([90, 0, 0])
 	{
     		translate([-65, 8, 100]) m3Hole();
-    		translate([65, -4, 100]) m3Hole();
-    		translate([-65, -4, 100]) m3Hole();
-            translate([65, 8, 100]) m3Hole();
+		translate([65, -4, 100])
+		{
+			translate([0,0.5,4.5])cube(10, center = true);
+			m3Hole();
+    		}
+		translate([-65, -4, 100])
+                {
+                        translate([0,0.5,4.5])cube(10, center = true);
+                        m3Hole();
+                }
+            	translate([65, 8, 100]) m3Hole();
 	}
 
 	//holes for pico
