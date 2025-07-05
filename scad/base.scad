@@ -12,9 +12,12 @@ difference() {
 		cylinder(3, 0, 3);
     	}
 
-    	//hollow out the rect
+    	//hollow out the rect with a rim so walls are secure
     	translate([0, -2, 3])
-    	translate([0,1,0]) cube([l, w-3, h+1], center = true);
+	{
+    		translate([0,1,2]) cube([l, w-3, h+1], center = true);
+		translate([0,1,0]) cube([l-5, w-7, h+1], center = true);
+	}
 
     	//start bottom intake on east side
     	for(a = [0 : 1 ]) {
@@ -105,7 +108,7 @@ difference() {
 
     	//HDMI-daughter board
     	translate([-l/2+19.5, -w/2+21, -15]) m3Hole();
-    	translate([-l/2+7.5, -w/2+63, -15]) m3Hole();
+    	translate([-l/2+7.5, -w/2+63, -15]) m2Hole();
 
 	//Pi mouning holes. M3 nuts should be used as spacers.
 	//M2.5 Pi holes needs to be widened w/drill
@@ -121,6 +124,12 @@ difference() {
 		translate([l/2-24, w/2-27, -25]) rotate([0, 0, 90]) m4Hole();
 		translate([l/2-24-58, w/2-63, -25]) rotate([0, 0, 90]) m4Hole();
 	}
+	else
+	{
+		translate([l/2-24, w/2-27, -25]) rotate([0, 0, 90]) scale(0.85) m3Hole();
+		translate([l/2-24-58, w/2-63, -25]) rotate([0, 0, 90]) scale(0.85) m3Hole();
+	}
+
 
 	//pi front I/O cutout
 	translate([l/2-70, w/2-55.5-15.5, -6.25]) cube([85, piCutoutX, piCutoutY]);
@@ -130,11 +139,11 @@ difference() {
 
     	//No spacers to fit HDMI-EDP board
     	//HDMI-EDP daughter I/O board cutout
-    	translate([-l/2-10, -w/2+13, -8.5]) cube([20, 53, 5.5]);
+    	translate([-l/2-10, -w/2+13, -8.5]) cube([20, 52.5, 5.5]);
 
 	//IEC C13 cutout
 	translate([-l/2 - 25, IEC_Y+0.75, -6]) cube([90, IEC_W-1.5, IEC_H]);
-    	translate([-l/2, IEC_Y-5, -20]) cube([5, IEC_W+10, IEC_H]);
+    	translate([-l/2, IEC_Y-5, -9.5]) cube([5, IEC_W+10, IEC_H]);
 
 
 	//IEC socket mountng holes
@@ -211,6 +220,10 @@ difference() {
 	translate([18, w/2-6, -20]) m3Hole();
     	translate([-18, w/2-6, -20]) m3Hole();
 
+	//the rim doesn't make space for nuts, so I make a cutout
+	translate([18, w/2-5, -h/2+5]) cube([6,5,5], center = true);
+	translate([-18, w/2-5, -h/2+5]) cube([6,5,5], center = true);
+
 	//Holes for a door handle
 	rotate([90, 0, 0])
 	{
@@ -226,6 +239,7 @@ difference() {
 	translate([picoX, picoY-47, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
 	translate([picoX+11.4, picoY-47, SURFACE_MOUNT-1]) m2Hole(); //m2Holder();
 }
+
 
 /*
 ---------------------
@@ -245,6 +259,11 @@ else
 {
 	translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
 }
+
+
+//fits above daughter board
+translate([-l/2-3, -w/2+23, -4.5]) cube([3, 43, 5.5]);
+
 
 //IEC mounting spacers
 	rotate([0, 90, 0])  {

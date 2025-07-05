@@ -168,12 +168,14 @@ module bulbHolder()
 		cube([BULB_HOLDER_W, 5, BULB_HOLDER_H]);
 		rotate([90, 0, 0])
 		{
-			translate([4, BULB_HOLDER_H/2, -6])
+			translate([4, BULB_HOLDER_H/1.5, -6])
 			{
 				m2Hole();
 				translate([BULB_HOLES_DIST, 0, 0]) m2Hole();
 			}
 		}
+		translate([BULB_HOLDER_W/2, 0, 0]) cube([17.5, 5*10, BULB_HOLDER_H*4], center = true);
+
 	}
 }
 

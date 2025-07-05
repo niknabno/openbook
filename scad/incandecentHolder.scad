@@ -5,9 +5,9 @@ include<modules.scad>;
 
 bulbHolder();
 
-BULB_HOLDER_W = 21;
+BULB_HOLDER_W = 32;
 BULB_HOLDER_H = 10;
-BULB_HOLES_DIST = 13;
+BULB_HOLES_DIST = 25;
 
 module bulbHolder()
 {
@@ -22,5 +22,7 @@ module bulbHolder()
 				translate([BULB_HOLES_DIST, 0, 0]) m2Hole();
 			}
 		}
+		cube([20, 5, 20]);
+
 	}
 }

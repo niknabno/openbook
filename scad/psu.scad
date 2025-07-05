@@ -46,7 +46,7 @@ difference() {
             translate([-bracketL/2, 99.5, 4.5]) cube([bracketL, bracketW-1, 3.5]);
         cylinder(1, 1, 0);
     }
-
+    translate([0, 110-38, 9.5]) cube([l-20, w, h], center=true);
     translate([18, 104, 5]) m3Hole();
     translate([-18, 104, 5]) m3Hole();
 }
@@ -57,6 +57,7 @@ difference() {
         translate([-(bracketL-3)/2, 34.5, 4.5]) cube([bracketL-3, bracketW, 3.5]);
         cylinder(1, 1, 0);
     }
+    translate([0, 110-38, 9.5]) cube([l-20, w, h], center=true);
     translate([16, 40.5-0.925+0.5, 5]) m3Hole();
     translate([-16, 40.5-0.925+0.5, 5]) m3Hole();
 }
