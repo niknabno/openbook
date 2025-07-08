@@ -25,7 +25,7 @@ difference() {
         cube([l, w, h], center=true);
     };
     //wall w/hinges is 1.5mm thicker
-    translate([-l/2, w/2-2, -5]) cube([l,w,10]);
+    translate([-l/2-1, w/2-3, -5]) cube([l+5,w,10]);
 
 	for(i = [0 : 1]) {
             //Inset
@@ -84,20 +84,20 @@ difference() {
         	}
     	}
 
-        cornerSqr(-l/2, -w/2);
-        cornerSqr(l/2-12, w/2-12);
-        cornerSqr(l/2-12, -w/2);
-        cornerSqr(-l/2, w/2-12);
+        cornerSqr(-l/2, -w/2-0.5);
+        cornerSqr(l/2-12, w/2-12-0.5);
+        cornerSqr(l/2-12, -w/2-0.5);
+        cornerSqr(-l/2, w/2-12-0.5);
 
-        translate([0, LAPTOP_NORTH-sqrSupportW-1.85, sqrSupportZ]) m3Hole();
-        translate([0, LAPTOP_SOUTH+sqrSupportW, sqrSupportZ]) m3Hole();
+        translate([0, LAPTOP_NORTH-sqrSupportW-1.85-1, sqrSupportZ]) m3Hole();
+        translate([0, LAPTOP_SOUTH+sqrSupportW-0.5, sqrSupportZ]) m3Hole();
 
-        translate([LAPTOP_WEETBIX + LARGE_SQR_SUPPORT_W/2-2, 0, sqrSupportZ]) m3Hole();
-        translate([LAPTOP_EAST-LARGE_SQR_SUPPORT_W/2+2, 0, sqrSupportZ]) m3Hole();
-        translate([0, 0, -3]) m3Hole();
+        translate([LAPTOP_WEETBIX + LARGE_SQR_SUPPORT_W/2-2, -0.5, sqrSupportZ]) m3Hole();
+        translate([LAPTOP_EAST-LARGE_SQR_SUPPORT_W/2+2, -0.5, sqrSupportZ]) m3Hole();
+        translate([0, -0.5, -3]) m3Hole();
 
-	translate([75+TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2, -3]) m3Hole();
-	translate([-68-TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2, -3]) m3Hole();
+	translate([75-TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2-0.5, -3]) m3Hole();
+	translate([-68-TRI_SUPPORT_W/2*1.25, w/2-TRI_SUPPORT_L/2-1, -3]) m3Hole();
 
 
 
@@ -116,10 +116,10 @@ difference() {
         translate([-l/2-1, IEC_Y-3, -5]) cube([6, IEC_W+6, IEC_H]);
 
         //For the edp cable
-        translate([-62, w/2-4, -4]) cube([18, 1.25, IEC_H]);
+        translate([-62+11, w/2-4, -4]) cube([18, 1.25, IEC_H]);
 
 	//for voltometre
-	translate([VOLT_X+((VOLT_HOLE_DIST-VOLT_L)/2), VOLT_Y, -2])
+	translate([VOLT_X+6, VOLT_Y, -2])
 	{
 		cube([VOLT_L, VOLT_W, VOLT_H]);
 	}

@@ -4,6 +4,8 @@ $fn = 90;
 include<consts.scad>; //include global vars
 include<modules.scad>; //include modules
 
+translate([0,0.5,h/2+2]) import("../stl/top.stl");
+
 //start with one rounded rect, remove internal volume and mounting holes.
 difference() {
 	//make rect
@@ -419,3 +421,4 @@ translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
 translate([-109, 90, SURFACE_MOUNT+2]) bulbHolder();
 
 
+//
