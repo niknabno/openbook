@@ -15,15 +15,15 @@ difference()
     	};
 
     	translate([0, 0, 8]) cube([l+17, w+17, 9], center=true);//the rounding above adds height: so me cut that extra height off
-	translate([LAPTOP_WEETBIX+11,LAPTOP_SOUTH+4.5,0]) cube([l-22, w-9.5, 4]); //main cutout
+	translate([LAPTOP_WEETBIX+11,LAPTOP_SOUTH+11.5,-0.75]) cube([l-22, w-16.5, 4.5]); //main cutout
 
     	lidHinge(HINGE_AX);
     	lidHinge(HINGE_BX);
     	smallLidHinge(HINGE_CX);
 
 	//cutout to allow hinge barrel to fit
-    	translate([-157, -w/2-15, -5]) cube([220, 13, 30]);
-    	translate([-157, -w/2-10, 0]) cube([220, 14.75, 30]);
+    	translate([-157, -w/2-15, -5]) cube([228, 13, 30]);
+    	translate([-157, -w/2-10, 0]) cube([228, 122, 30]);
 
     	//capital letters show up best in this font
     	rotate([0, 180, 0]) {
@@ -36,8 +36,8 @@ difference()
     			translate([0, -45, 0]) text("", size=8, spacing=1.25, halign="center", font = "Plaster:style=Regular");
 
     		}
-    		translate([-100, -6.5,-5]) cube([90, 4, 40]);
-    		translate([10, -6.5,-5]) cube([90, 4, 40]);
+    		translate([-100, -6,-5]) cube([90, 4, 40]);
+    		translate([10, -6,-5]) cube([90, 4, 40]);
     		translate([+100, -4, -5]) cylinder(90, 2, 2);
     		translate([-100, -4, -5]) cylinder(90, 2, 2);
     		translate([-10, -4, -5]) cylinder(90, 2, 2);
@@ -49,7 +49,7 @@ difference()
 	{
 		screenMountHoles();
 		translate([-138.5-3, 192-7, 5]) cube([12,10,5]);
-		translate([138.5-7, 192-7, 5]) cube([12,10,5]);
+		translate([138.5-8, 192-7, 5]) cube([12,10,5]);
 	}
 }
 
@@ -67,10 +67,10 @@ difference()
 
 
 //ensure strong conection with hinge and lit
-translate([HINGE_BX-3, 0, 0]) hingeMountPoint();
-translate([HINGE_CX-3, 0, 0]) smallHingeMountPoint();
-translate([HINGE_AX-3, 0, 0]) hingeMountPoint();
-
+//translate([HINGE_BX-3, 0, 0]) hingeMountPoint();
+//translate([HINGE_CX-3, 0, 0]) smallHingeMountPoint();
+//translate([HINGE_AX-3, 0, 0]) hingeMountPoint();
+unifiedHingeMountPoint();
 
 module laptopHingeA(x) {
         translate([0, -w/2+15, -5]) {

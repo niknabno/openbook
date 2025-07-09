@@ -109,6 +109,10 @@ module iecCornerTriangle() {
         }
 }
 
+
+
+
+
 //provide a strong connection from hinge to lid
 module hingeMountPoint()
 {
@@ -123,6 +127,34 @@ module hingeMountPoint()
 		translate([3, -w/2+7, -1]) m4Hole();
 
 	}
+}
+
+module unifiedHingeMountPoint()
+{
+        difference()
+        {
+                minkowski()
+                {
+                        translate([HINGE_AX-8, -w/2-1.5, 0]) cube([315, 13, 2.5]);
+                        //cylinder(0.000000000001, 3, 3);
+                }
+		translate([HINGE_AX, 0, 0])
+		{
+                	translate([36, -w/2+7, -1]) m4Hole();
+                	translate([0, -w/2+7, -1]) m4Hole();
+		}
+		translate([HINGE_BX, 0, 0])
+		{
+			translate([36, -w/2+7, -1]) m4Hole();
+                	translate([0, -w/2+7, -1]) m4Hole();
+		}
+		translate([HINGE_CX, 0, 0])
+		{
+                	translate([26, -w/2+7, -1]) m4Hole();
+                	translate([0, -w/2+7, -1]) m4Hole();
+		}
+
+        }
 }
 
 module smallHingeMountPoint()
