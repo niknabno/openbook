@@ -131,6 +131,8 @@ module hingeMountPoint()
 
 module unifiedHingeMountPoint()
 {
+
+	//translate([HINGE_AX-8, -w/2-1.5, 1.5]) cube([36, 13, 1]);
         difference()
         {
                 minkowski()
@@ -140,18 +142,20 @@ module unifiedHingeMountPoint()
                 }
 		translate([HINGE_AX, 0, 0])
 		{
+			translate([-8, -w/2-2.5, 1.5]) cube([52, 15, 2]);
                 	translate([36, -w/2+7, -1]) m4Hole();
                 	translate([0, -w/2+7, -1]) m4Hole();
 		}
 		translate([HINGE_BX, 0, 0])
 		{
+			translate([-8, -w/2-2.5, 1.5]) cube([52, 15, 2]);
 			translate([36, -w/2+7, -1]) m4Hole();
                 	translate([0, -w/2+7, -1]) m4Hole();
 		}
 		translate([HINGE_CX, 0, 0])
 		{
-                	translate([26, -w/2+7, -1]) m4Hole();
-                	translate([0, -w/2+7, -1]) m4Hole();
+                	translate([26, -w/2+6, -1]) m4Hole();
+                	translate([0, -w/2+6, -1]) m4Hole();
 		}
 
         }
@@ -186,7 +190,7 @@ module lidHinge(x) {
 }
 
 module smallLidHinge(x) {
-    translate([0, -w/2+4.5, -5]) {
+    translate([0, -w/2+3.5, -5]) {
         translate([x, 2.5, 0]) m4Hole();
         translate([x+26, 2.5, 0]) m4Hole();
      }
@@ -214,15 +218,15 @@ module bulbHolder()
 //mounting holes for IPS panel
 module screenMountHoles()
 {
-	translate([0,0,0])
+	translate([0,-0.75,0])
 	{
-		translate([-124.75,0,0]) m2Hole();
-		translate([124.75,0,0]) m2Hole();
+		translate([-125.75,0,0]) m2Hole();
+		translate([125.75,0,0]) m2Hole();
 	}
 	translate([0, 192, 0])
 	{
-		translate([-138.5,0,0]) m2Hole();
-		translate([138.5,0,0]) m2Hole();
+		translate([-136.5,0,0]) m2Hole();
+		translate([136.5,0,0]) m2Hole();
 	}
 
 }

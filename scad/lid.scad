@@ -48,8 +48,8 @@ difference()
 	translate([0, LAPTOP_SOUTH+25, -5])
 	{
 		screenMountHoles();
-		translate([-138.5-3, 192-7, 5]) cube([12,10,5]);
-		translate([138.5-8, 192-7, 5]) cube([12,10,5]);
+		translate([-138.5-1.5, 192-7, 5]) cube([13.5,11.25,5]);
+		translate([138.5-11.5, 192-7, 5]) cube([13.5,11.25,5]);
 	}
 }
 
