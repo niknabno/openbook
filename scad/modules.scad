@@ -137,18 +137,18 @@ module unifiedHingeMountPoint()
         {
                 minkowski()
                 {
-                        translate([HINGE_AX-8, -w/2-1.5, 0]) cube([315, 13, 2.5]);
+                        translate([HINGE_AX-8, -w/2-1.5, -0.2]) cube([315, 13, 2.5]);
                         //cylinder(0.000000000001, 3, 3);
                 }
 		translate([HINGE_AX, 0, 0])
 		{
-			translate([-8, -w/2-2.5, 1.5]) cube([52, 15, 2]);
+			translate([-8, -w/2-2.5, 1.3]) cube([53, 15, 2]);
                 	translate([36, -w/2+7, -1]) m4Hole();
                 	translate([0, -w/2+7, -1]) m4Hole();
 		}
 		translate([HINGE_BX, 0, 0])
 		{
-			translate([-8, -w/2-2.5, 1.5]) cube([52, 15, 2]);
+			translate([-8, -w/2-2.5, 1.3]) cube([54, 15, 2]);
 			translate([36, -w/2+7, -1]) m4Hole();
                 	translate([0, -w/2+7, -1]) m4Hole();
 		}
