@@ -148,7 +148,7 @@ module unifiedHingeMountPoint()
 		}
 		translate([HINGE_BX, 0, 0])
 		{
-			translate([-8, -w/2-2.5, 1.3]) cube([56, 15, 2]);
+			translate([-9, -w/2-2.5, 1.3]) cube([57, 15, 2]);
 			translate([36, -w/2+7, -1]) m4Hole();
                 	translate([0, -w/2+7, -1]) m4Hole();
 		}
