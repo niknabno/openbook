@@ -137,7 +137,7 @@ module unifiedHingeMountPoint()
         {
                 minkowski()
                 {
-                        translate([HINGE_AX-8, -w/2-1.5, -0.2]) cube([315, 13, 2.5]);
+                        translate([HINGE_AX-9, -w/2-1.5, -0.2]) cube([315, 13, 2.5]);
                         //cylinder(0.000000000001, 3, 3);
                 }
 		translate([HINGE_AX, 0, 0])
@@ -154,8 +154,8 @@ module unifiedHingeMountPoint()
 		}
 		translate([HINGE_CX, 0, 0])
 		{
-                	translate([26, -w/2+6, -1]) m4Hole();
-                	translate([0, -w/2+6, -1]) m4Hole();
+                	translate([26, -w/2+5.75, -1]) m4Hole();
+                	translate([0, -w/2+5.75, -1]) m4Hole();
 		}
 
         }
@@ -190,7 +190,7 @@ module lidHinge(x) {
 }
 
 module smallLidHinge(x) {
-    translate([0, -w/2+3.5, -5]) {
+    translate([0, -w/2+3.25, -5]) {
         translate([x, 2.5, 0]) m4Hole();
         translate([x+26, 2.5, 0]) m4Hole();
      }

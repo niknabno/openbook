@@ -22,8 +22,8 @@ difference()
     	smallLidHinge(HINGE_CX);
 
 	//cutout to allow hinge barrel to fit
-    	translate([-157, -w/2-15, -5]) cube([228, 13, 30]);
-    	translate([-157, -w/2-10, 0]) cube([228, 122, 30]);
+    	translate([-158, -w/2-15, -5]) cube([229, 13, 30]);
+    	translate([-158, -w/2-10, 0]) cube([229, 122, 30]);
 
     	//capital letters show up best in this font
     	rotate([0, 180, 0]) {
