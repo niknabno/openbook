@@ -22,8 +22,8 @@ difference()
     	smallLidHinge(HINGE_CX);
 
 	//cutout to allow hinge barrel to fit
-    	translate([-158, -w/2-15, -5]) cube([229, 13, 30]);
-    	translate([-158, -w/2-10, 0]) cube([229, 122, 30]);
+    	translate([-159, -w/2-12.5, -10]) cube([232, 13.5, 30]);
+    	translate([-159, -w/2-1, 0]) cube([232, 13.5, 30]);
 
     	//capital letters show up best in this font
     	rotate([0, 180, 0]) {
@@ -48,8 +48,8 @@ difference()
 	translate([0, LAPTOP_SOUTH+25, -5])
 	{
 		screenMountHoles();
-		translate([-138.5-1.5, 192-7, 5]) cube([13.5,11.25,5]);
-		translate([138.5-11.5, 192-7, 5]) cube([13.5,11.25,5]);
+		translate([-138.5-1.5, 192-7, 5]) cube([14.5,11.25,5]);
+		translate([138.5+1.5-14.5, 192-7, 5]) cube([14.5,11.25,5]);
 	}
 }
 
