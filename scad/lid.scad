@@ -15,7 +15,7 @@ difference()
     	};
 
     	translate([0, 0, 8]) cube([l+17, w+17, 9], center=true);//the rounding above adds height: so me cut that extra height off
-	translate([LAPTOP_WEETBIX+11,LAPTOP_SOUTH+11.5,-0.75]) cube([l-22, w-16.5, 4.5]); //main cutout
+	translate([LAPTOP_WEETBIX+6.5,LAPTOP_SOUTH+11.5,-0.75]) cube([l-17.5, w-16.5, 4.5]); //main cutout
 
     	lidHinge(HINGE_AX);
     	lidHinge(HINGE_BX);
@@ -48,7 +48,7 @@ difference()
 	translate([0, LAPTOP_SOUTH+25, -5])
 	{
 		screenMountHoles();
-		translate([-138.5-1.5, 192-7, 5]) cube([14.5,11.25,5]);
+		translate([-138.5-1.5-4, 192-7, 5]) cube([14.5,11.25,5]);
 		translate([138.5+1.5-14.5, 192-7, 5]) cube([14.5,11.25,5]);
 	}
 }

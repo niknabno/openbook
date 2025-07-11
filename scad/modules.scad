@@ -220,13 +220,13 @@ module screenMountHoles()
 {
 	translate([0,-2,0])
 	{
-		translate([-126,0,0]) m2Hole();
+		translate([-130,0,0]) m2Hole();
 		translate([126,0,0]) m2Hole();
 	}
 	translate([0, 192, 0])
 	{
-		translate([-136,0,0]) m2Hole();
-		translate([136,0,0]) m2Hole();
+		translate([-140+0.5,0,0]) m2Hole();
+		translate([136-0.5,0,0]) m2Hole();
 	}
 
 }
