@@ -6,13 +6,21 @@ h = 22;
 OFFICAL_PI_5_COOLER = false;
 PI_4_ETHERNET = false; //what side the rj-45 port of the sbc is on
 
+WALL_THICKNESS = 3;
+HINGE_WALL_THICKNESS = 6; //the north wall with hinges needs to be thicker for strength
+STRUCT_BRIM_THICKNESS = 5; //structural brim
 
+BASE_THICKNESS = 3;
+
+//the sides of the laptop, does not include wall thickness
 LAPTOP_NORTH = w/2;
 LAPTOP_SOUTH = -w/2;
 LAPTOP_EAST = l/2;
 LAPTOP_WEETBIX = -l/2;
 
+//the zPos for if you want a component to sit flush with the bottom of the laptop.
 SURFACE_MOUNT = -h/2;
+
 
 //The size of the cutout for the PSU plate
 PSU_HOLE_L= 114;
@@ -25,7 +33,7 @@ IEC_HOLES_DISTANCE = 40;
 
 IEC_Y = w/2-54.5;
 
-IEC_CORNER_TRIANGLE_SIZE = 5;
+IEC_CORNER_TRIANGLE_SIZE = 5; //corener triangles for aesthtics
 
 
 //Square supports prevent the walls from flexing
@@ -38,8 +46,8 @@ TRI_SUPPORT_L = 16;
 TRI_SUPPORT_ANGLE = 20;
 
 //Cutout for pi I/O
-piCutoutX = 52.5;
-piCutoutY = 16.70;
+PI_CUTOUT_W = 52.5;
+PI_CUTOUT_H = 16.70;
 
 PI_CUTOUT_ADDON_W = 19.5;
 PI_CUTOUT_ADDON_H = 2.5;
@@ -59,6 +67,9 @@ BMS_W = 28.7;
 buckW = 20.5;
 buckL = 25.5;
 
+BUCK_X = 0;
+BUCK_Y = 0;
+
 picoW = 50;
 picoL = 20;
 
@@ -72,10 +83,9 @@ BAT_H = 76 ;
 BAT_HOLES_DISTANCE = 40;
 BAT_X_OFFSET = 30;
 
-//How thick the kb + tp plate will be
-keyboardPlateW = 2;
+KB_PLATE_W = 2;
 
-sqrSupportZ = -h/3-keyboardPlateW;
+sqrSupportZ = -h/3-KB_PLATE_W;
 sqrSupportH = 21;
 
 largeIntakeRadius = 4.65;
@@ -86,16 +96,20 @@ HEATSET_INSERT_HOLE = 2.1; //the pilot hole for M3 heatpress inserts
 LARGE_INTAKE_R = 4.65;
 
 HINGE_AX = -150.5;
-HINGE_BX = 25;
-HINGE_CX = -50;
+HINGE_BX = -50;
+HINGE_CX = 20;
 
 BULB_HOLDER_W = 33;
 BULB_HOLDER_H = 16.5;
 BULB_HOLES_DIST = 25;
 
-VOLT_X = -110;
-VOLT_Y = LAPTOP_NORTH-16;
-VOLT_H = 6;
-VOLT_W = 10;
-VOLT_HOLE_DIST = 26;
-VOLT_L = 22;
+//for panel mount volto-metre
+VOLTO_X = -110;
+VOLTO_Y = LAPTOP_NORTH-16;
+VOLTO_H = 6;
+VOLTO_W = 10;
+VOLTO_HOLE_DIST = 26; //dist between mount holes
+VOLTO_L = 22;
+
+
+

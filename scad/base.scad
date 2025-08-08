@@ -4,24 +4,31 @@ $fn = 90;
 include<consts.scad>; //include global vars
 include<modules.scad>; //include modules
 
-translate([0,0.5,h/2+2]) import("../stl/top.stl");
+//kb plate for reference. Comment out unless needed
+//translate([0,0.5,h/2+2]) import("../stl/top.stl");
+
 
 //start with one rounded rect, remove internal volume and mounting holes.
 difference() {
-	//make rect
+	//make init rect, with 3 extra mm on all sides for walls
 	minkowski(){
 		cube([l, w, h], center=true);
-		cylinder(3, 0, 3);
+		cylinder(WALL_THICKNESS, 0, WALL_THICKNESS);
     	}
 
+	//cross section for reference. Comment out unless needed
+	//translate([LAPTOP_WEETBIX,LAPTOP_SOUTH,-h/2-1]) cube([l/2,w,h]);
+
     	//hollow out the rect with a rim so walls are secure
-    	translate([0, -2, 3])
+    	translate([0, -2, BASE_THICKNESS])
 	{
-    		translate([0,1,2]) cube([l, w-3, h+1], center = true);
-		translate([0,1,0]) cube([l-5, w-7, h+1], center = true);
+		//main hollow out
+    		translate([0,1,2]) cube([l, w-(HINGE_WALL_THICKNESS-WALL_THICKNESS), h+1], center = true);
+		//smaller hollow out, at lower z
+		translate([0,1,0]) cube([l-STRUCT_BRIM_THICKNESS, (w-STRUCT_BRIM_THICKNESS)-(HINGE_WALL_THICKNESS-WALL_THICKNESS), h+1], center = true);
 	}
 
-    	//start bottom intake on east side
+    	//---start bottom intake on east side---//
     	for(a = [0 : 1 ]) {
         	for(i = [0 : 3]) {
             	translate([(i*11.5)+LAPTOP_EAST-70, (a*20.5)-5, -20]) largeIntake();
@@ -33,9 +40,9 @@ difference() {
             	translate([(i*11.5)+LAPTOP_EAST-64, (a*20.5)-15, -20]) largeIntake();
         	}
     	}
-	//end bottom intake on east side
+	//---end bottom intake on east side---//
 
-        //start bottom intake on west side
+        //---start bottom intake on west side---//
         for(a = [0 : 2 ]) {
         	for(i = [0 : 2]) {
             	translate([(i*11.5)+LAPTOP_WEETBIX+40, (a*20.5)-7.5, -20]) rotate(0) largeIntake();
@@ -47,9 +54,9 @@ difference() {
             	translate([(i*11.5)+LAPTOP_WEETBIX+32.5, (a*20.5)-17.5, -20]) rotate(0) largeIntake();
         	}
     	}
-	//end bottom intake on west side
+	//---end bottom intake on west side---//
 
-    	//side intake. circles with six sides = hexagons
+    	//side intake. Setting res for circles to six = hexagons
     	for(a = [0 : 1 ]) {
             for(i = [0 : 13]) {
             	rotate([90, 0, 0]) translate([(i*5)+90, (a*10)-5, -w/2-10]) cylinder(25, 2.25, 2.25, $fn = 6);
@@ -67,15 +74,15 @@ difference() {
 	translate([-110, 67, -h]) cube([4,2,40]);
 	translate([-110, 75, -h]) cube([4,2,40]);
 
-	//Hinges
+	//Hinges.
 	hinge(HINGE_AX);
-	hinge(HINGE_BX);
-	smallHinge(HINGE_CX);
+	smallHinge(HINGE_BX);
+	hinge(HINGE_CX);
 	//laptopHingeA(-75, LAPTOP_NORTH-27);
 	//Let hinge be a hinge
         //translate([LAPTOP_WEETBIX+37, LAPTOP_NORTH-1, SURFACE_MOUNT+2.5]) cube([32.8,8, 50]);
 
-	//switching buck converter mounting holes
+	//switching buck converter mounting holes. On the west side of the laptop.
         translate([-70, -10, -20])
 	{
         	translate([20, 50]) m3Hole();
@@ -84,7 +91,7 @@ difference() {
         	translate([44, -4]) m3Hole();
     	}
 
-	//bms mounting holes
+	//bms mounting holes. On east side of the laptop.
     	translate([BMS_X, BMS_Y, -12])
 	{
         	m2Hole();
@@ -98,17 +105,16 @@ difference() {
     	translate([BMS_X, BMS_Y, -20])
 	{
         	m2Hole();
-
     	}
 
 
-    	//HDMI-EDP main board
+    	//HDMI-EDP main board mount holes.
     	translate([-95, 49, -20]) m3Hole();
     	translate([-150, -20, -20]) m3Hole();
     	translate([-150, 46, -20]) m3Hole();
     	translate([-95, -20, -20]) m3Hole();
 
-    	//HDMI-daughter board
+    	//HDMI-daughter board mount holes.
     	translate([-l/2+19.5, -w/2+21, -15]) m3Hole();
     	translate([-l/2+7.5, -w/2+63, -15]) m2Hole();
 
@@ -134,10 +140,10 @@ difference() {
 
 
 	//pi front I/O cutout
-	translate([l/2-70, w/2-55.5-15.5, -6.25]) cube([85, piCutoutX, piCutoutY]);
+	translate([l/2-70, w/2-55.5-15.5, -6.25]) cube([85,PI_CUTOUT_W, PI_CUTOUT_H]);
 
     	//indent so smd components on bottom of pi can fit
-    	translate([l/2-90, w/2-55.5-15.5-3, -9.75]) cube([90, piCutoutX+6, piCutoutY]);
+    	translate([l/2-90, w/2-55.5-15.5-3, -9.75]) cube([90,PI_CUTOUT_W+6, PI_CUTOUT_H]);
 
     	//No spacers to fit HDMI-EDP board
     	//HDMI-EDP daughter I/O board cutout
@@ -273,7 +279,7 @@ else
 }
 
 //voltometre mount point
-translate([VOLT_X-1,VOLT_Y,SURFACE_MOUNT+1.5])
+translate([VOLTO_X-1,VOLTO_Y,SURFACE_MOUNT+1.5])
 {
 	voltometreMount();
         //translate([7,0,17]) cube([22, 10, 6]);
@@ -340,7 +346,7 @@ difference() {
 }
 
 difference() {
-    translate([-connecterW/2, -5, SURFACE_MOUNT+1]) cube([connecterW, 10, h-keyboardPlateW]);
+    translate([-connecterW/2, -5, SURFACE_MOUNT+1]) cube([connecterW, 10, h-KB_PLATE_W]);
     translate([-20, 0, -5])  rotate([0, 90, 0]) m3Hole();
     translate([0, 0, 3]) m3Hole();
 }

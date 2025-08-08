@@ -18,8 +18,8 @@ difference()
 	translate([LAPTOP_WEETBIX+6.5,LAPTOP_SOUTH+11.5,-0.75]) cube([l-17.5, w-16.5, 4.5]); //main cutout
 
     	lidHinge(HINGE_AX);
-    	lidHinge(HINGE_BX);
-    	smallLidHinge(HINGE_CX);
+    	lidHinge(HINGE_CX);
+    	smallLidHinge(HINGE_BX);
 
 	//cutout to allow hinge barrel to fit
     	translate([-159, -w/2-12.5, -10]) cube([232, 13.5, 30]);

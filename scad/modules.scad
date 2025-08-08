@@ -88,7 +88,7 @@ module m2Holder() {
 //Designed to support KB+TP & M3 heatpress threaded inserts.
 module cornerSqr(x, y) {
         difference() {
-            translate([x, y, SURFACE_MOUNT]) cube([12, 12, h+3-keyboardPlateW]);
+            translate([x, y, SURFACE_MOUNT]) cube([12, 12, h+3-KB_PLATE_W]);
             translate([x+6,y+6, 30]) cylinder(49, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
         }
 }
@@ -237,11 +237,11 @@ module voltometreMount()
 	difference()
 	{
 		translate([2,0,h/2+2.5]) cube([7.75, 16, 3.5]);
-		translate([VOLT_W/2,VOLT_W/2,0]) m2Hole();
+		translate([VOLTO_W/2,VOLTO_W/2,0]) m2Hole();
     	}
 	difference()
         {
                 translate([26+1.25,0,h/2+2.5]) cube([7.5, 16, 3.5]);
-                translate([26+VOLT_W/2,VOLT_W/2,0]) m2Hole();
+                translate([26+VOLTO_W/2,VOLTO_W/2,0]) m2Hole();
       	}
 }
