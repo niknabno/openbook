@@ -67,7 +67,7 @@ Slicer: PrusaSlicer (Flatpak).
   * OK with computers and Linux, or willing to learn
   * Ability to pull off a matrix trench coat and sunnies.
 
-# Arm? Is is enough.
+# Arm, Is it enough?
 No. I remote desktop into my x86 void-linux PC using sunshine and moonlight. Arm is overrated.  
 Luckily the pi has amazing Wi-Fi.  
 
