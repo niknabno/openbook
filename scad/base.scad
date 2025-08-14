@@ -17,7 +17,7 @@ difference() {
     	}
 
 	//cross section for reference. Comment out unless needed
-	//translate([LAPTOP_WEETBIX,LAPTOP_SOUTH,-h/2-1]) cube([l/2,w,h]);
+	//translate([WEETBIX,SOUTH,-h/2-1]) cube([l/2,w,h]);
 
     	//hollow out the rect with a rim so walls are secure
     	translate([0, -2, BASE_THICKNESS])
@@ -31,13 +31,13 @@ difference() {
     	//---start bottom intake on east side---//
     	for(a = [0 : 1 ]) {
         	for(i = [0 : 3]) {
-            	translate([(i*11.5)+LAPTOP_EAST-70, (a*20.5)-5, -20]) largeIntake();
+            	translate([(i*11.5)+EAST-70, (a*20.5)-5, -20]) largeIntake();
         	}
     	}
 
         for(a = [0 : 1 ]) {
         	for(i = [0 : 3]) {
-            	translate([(i*11.5)+LAPTOP_EAST-64, (a*20.5)-15, -20]) largeIntake();
+            	translate([(i*11.5)+EAST-64, (a*20.5)-15, -20]) largeIntake();
         	}
     	}
 	//---end bottom intake on east side---//
@@ -45,13 +45,13 @@ difference() {
         //---start bottom intake on west side---//
         for(a = [0 : 2 ]) {
         	for(i = [0 : 2]) {
-            	translate([(i*11.5)+LAPTOP_WEETBIX+40, (a*20.5)-7.5, -20]) rotate(0) largeIntake();
+            	translate([(i*11.5)+WEETBIX+40, (a*20.5)-7.5, -20]) rotate(0) largeIntake();
         	}
     	}
 
         for(a = [0 : 3 ]) {
         	for(i = [0 : 2]) {
-            	translate([(i*11.5)+LAPTOP_WEETBIX+32.5, (a*20.5)-17.5, -20]) rotate(0) largeIntake();
+            	translate([(i*11.5)+WEETBIX+32.5, (a*20.5)-17.5, -20]) rotate(0) largeIntake();
         	}
     	}
 	//---end bottom intake on west side---//
@@ -78,18 +78,28 @@ difference() {
 	hinge(HINGE_AX);
 	smallHinge(HINGE_BX);
 	hinge(HINGE_CX);
-	//laptopHingeA(-75, LAPTOP_NORTH-27);
+	//laptopHingeA(-75, NORTH-27);
 	//Let hinge be a hinge
-        //translate([LAPTOP_WEETBIX+37, LAPTOP_NORTH-1, SURFACE_MOUNT+2.5]) cube([32.8,8, 50]);
+        //translate([WEETBIX+37, NORTH-1, SURFACE_MOUNT+2.5]) cube([32.8,8, 50]);
 
 	//switching buck converter mounting holes. On the west side of the laptop.
-        translate([-70, -10, -20])
+        /*translate([-70, -10, -20])
 	{
         	translate([20, 50]) m3Hole();
         	translate([44, 50]) m3Hole();
         	translate([20, -4]) m3Hole();
         	translate([44, -4]) m3Hole();
     	}
+	*/
+
+	translate([BUCK_X, BUCK_Y, -20])
+        {
+                translate([0, 0]) m3Hole();
+                translate([BUCK_W, 0]) m3Hole();
+                translate([0, BUCK_L]) m3Hole();
+                translate([BUCK_W, BUCK_L]) m3Hole();
+	}
+
 
 	//bms mounting holes. On east side of the laptop.
     	translate([BMS_X, BMS_Y, -12])
@@ -150,8 +160,8 @@ difference() {
     	translate([-l/2-10, -w/2+13, -8.5]) cube([20, 52.5, 5.5]);
 
 	//IEC C13 cutout
-	translate([-l/2 - 25, IEC_Y+0.75, -6]) cube([90, IEC_W-1.5, IEC_H]);
-    	translate([-l/2, IEC_Y-5, -9.5]) cube([5, IEC_W+10, IEC_H]);
+	translate([WEETBIX - 25, IEC_Y+0.75, -6]) cube([90, IEC_W-1.5, IEC_H]);
+    	translate([WEETBIX, IEC_Y-5, -9.5]) cube([5, IEC_W+10, IEC_H]);
 
 
 	//IEC socket mountng holes
@@ -271,11 +281,11 @@ Below is addative.
 //Fits above rj-45 bcuz is shorter than the usb-a connecters
 if(PI_4_ETHERNET)
 {
-	translate([l/2, w/2-38, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
+	translate([EAST, w/2-38, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
 }
 else
 {
-	translate([l/2, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
+	translate([EAST, w/2-71, 8]) cube([3, PI_CUTOUT_ADDON_W, PI_CUTOUT_ADDON_H]);
 }
 
 //voltometre mount point
@@ -301,7 +311,7 @@ translate([-l/2-3, -w/2+23, -4.5]) cube([3, 43, 5.5]);
     }
 
 //IEC C13 CORNER TRIANGLES
-    translate([LAPTOP_WEETBIX,IEC_Y,-h/2+IEC_CORNER_TRIANGLE_SIZE]) {
+    translate([WEETBIX,IEC_Y,-h/2+IEC_CORNER_TRIANGLE_SIZE]) {
         translate([0, IEC_W-IEC_CORNER_TRIANGLE_SIZE]) iecCornerTriangle();
         rotate(180) translate([3,-IEC_CORNER_TRIANGLE_SIZE,0]) iecCornerTriangle();
     }
@@ -310,11 +320,11 @@ translate([-l/2-3, -w/2+23, -4.5]) cube([3, 43, 5.5]);
 
 
 //make the door handle fit better
-translate([-17, LAPTOP_SOUTH-3, -11]) {
+translate([-17, SOUTH-3, -11]) {
     translate([65, 0, 0]) cube([24,3,3]);
 }
 
-translate([-7, LAPTOP_SOUTH-3, -11]) {
+translate([-7, SOUTH-3, -11]) {
     translate([-65, 0, 0]) cube([24,3,3]);
 }
 
@@ -362,40 +372,41 @@ difference() {
 }
 */
 
-cornerSqr(-l/2, -w/2);
-cornerSqr(l/2-12, w/2-12);
-cornerSqr(l/2-12, -w/2);
-cornerSqr(-l/2, w/2-12);
+//corner squares with threaded inserts
+cornerSqr(WEETBIX, SOUTH);
+cornerSqr(EAST-CORNER_SQR_S, NORTH-CORNER_SQR_S);
+cornerSqr(EAST-CORNER_SQR_S, SOUTH);
+cornerSqr(WEETBIX, NORTH-CORNER_SQR_S);
 
 
 //start extra supports for screwing down top plate
 translate([0, 0, sqrSupportZ]) {
 difference() {
-    translate([ -LARGE_SQR_SUPPORT_W/2, LAPTOP_NORTH-SQR_SUPPORT_L]) sqrSupport(LARGE_SQR_SUPPORT_W, SQR_SUPPORT_L);
-    translate([-17, LAPTOP_NORTH-LARGE_SQR_SUPPORT_W/2+1.85, -sqrSupportZ])  rotate([0, 90, 0]) m3Hole();
-    translate([0, LAPTOP_NORTH-LARGE_SQR_SUPPORT_W/2, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
+    translate([ -LARGE_SQR_SUPPORT_W/2, NORTH-SQR_SUPPORT_L]) sqrSupport(LARGE_SQR_SUPPORT_W, SQR_SUPPORT_L);
+    translate([-17, NORTH-LARGE_SQR_SUPPORT_W/2+1.85, -sqrSupportZ])  rotate([0, 90, 0]) m3Hole();
+    translate([0, NORTH-LARGE_SQR_SUPPORT_W/2, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
 }
 
 difference() {
-    translate([ -LARGE_SQR_SUPPORT_W/2, LAPTOP_SOUTH]) sqrSupport(LARGE_SQR_SUPPORT_W, SQR_SUPPORT_L);
-    translate([-17, LAPTOP_SOUTH+LARGE_SQR_SUPPORT_W/2-1.85, -sqrSupportZ])  rotate([0, 90, 0]) m3Hole();
-    translate([0, LAPTOP_SOUTH+LARGE_SQR_SUPPORT_W/2-1.85, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
+    translate([ -LARGE_SQR_SUPPORT_W/2, SOUTH]) sqrSupport(LARGE_SQR_SUPPORT_W, SQR_SUPPORT_L);
+    translate([-17, SOUTH+LARGE_SQR_SUPPORT_W/2-1.85, -sqrSupportZ])  rotate([0, 90, 0]) m3Hole();
+    translate([0, SOUTH+LARGE_SQR_SUPPORT_W/2-1.85, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
 }
 
 difference() {
-    translate([LAPTOP_EAST-SQR_SUPPORT_L, -LARGE_SQR_SUPPORT_W/2]) sqrSupport(SQR_SUPPORT_L, LARGE_SQR_SUPPORT_W);
-    translate([LAPTOP_EAST-LARGE_SQR_SUPPORT_W/2+1.85, 0, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE,    HEATSET_INSERT_HOLE, center=true);
+    translate([EAST-SQR_SUPPORT_L, -LARGE_SQR_SUPPORT_W/2]) sqrSupport(SQR_SUPPORT_L, LARGE_SQR_SUPPORT_W);
+    translate([EAST-LARGE_SQR_SUPPORT_W/2+1.85, 0, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE,    HEATSET_INSERT_HOLE, center=true);
 }
 difference() {
-    translate([LAPTOP_WEETBIX, -LARGE_SQR_SUPPORT_W/2]) sqrSupport(SQR_SUPPORT_L, LARGE_SQR_SUPPORT_W);
-    translate([LAPTOP_WEETBIX + LARGE_SQR_SUPPORT_W/2-1.85, 0, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
+    translate([WEETBIX, -LARGE_SQR_SUPPORT_W/2]) sqrSupport(SQR_SUPPORT_L, LARGE_SQR_SUPPORT_W);
+    translate([WEETBIX + LARGE_SQR_SUPPORT_W/2-1.85, 0, 32.5]) cylinder(36.75, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
 }
 //end extra supports
 
 
 
-translate([90-TRI_SUPPORT_W, LAPTOP_SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
-translate([-90, LAPTOP_SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+translate([90-TRI_SUPPORT_W, SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
+translate([-90, SOUTH]) triSupport(); //sqrSupport(sqrSupportW, SQR_SUPPORT_L);
 
 //supports north
 translate([75, w/2]) rotate([0, 0, 180])
@@ -419,12 +430,11 @@ translate([-68, w/2]) rotate([0, 0, 180])
 
 
 //supports west
-translate([LAPTOP_WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();
-translate([LAPTOP_WEETBIX, -30]) rotate([0,0,270]) triSupport();
+translate([WEETBIX, 30+TRI_SUPPORT_W]) rotate([0,0,270]) triSupport();
+translate([WEETBIX, -30]) rotate([0,0,270]) triSupport();
 }
 
 //bulb charging indicator holder
 translate([-109, 90, SURFACE_MOUNT+2]) bulbHolder();
 
 
-//

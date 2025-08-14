@@ -6,15 +6,19 @@ include<modules.scad>;
 
 h=5;
 
+//rotate([0,0,90]) translate([0,0,0])import("../stl/aluminiumLidFrame.stl");
+
 difference()
 {
-	minkowski()
-	{
+	//minkowski()
+	//{
 		cube([l, w, h], center=true);
-        	cylinder(4, 0.00001, 3);
-    	};
+        	//cylinder(4, 0.00001, 3);
+    	//};
 
-    	translate([0, 0, 8]) cube([l+17, w+17, 9], center=true);//the rounding above adds height: so me cut that extra height off
+	rotate([0,0,90]) translate([0,0, -ALUMINIUM_THICKNESS/2]) import("../stl/aluminiumLidFrame.stl");
+
+    	//translate([0, 0, 8]) cube([l+17, w+17, 9], center=true);//the rounding above adds height: so me cut that extra height off
 	translate([LAPTOP_WEETBIX+6.5,LAPTOP_SOUTH+11.5,-0.75]) cube([l-17.5, w-16.5, 4.5]); //main cutout
 
     	lidHinge(HINGE_AX);
@@ -22,11 +26,11 @@ difference()
     	smallLidHinge(HINGE_BX);
 
 	//cutout to allow hinge barrel to fit
-    	translate([-159, -w/2-12.5, -10]) cube([232, 13.5, 30]);
-    	translate([-159, -w/2-1, 0]) cube([232, 13.5, 30]);
+    	//translate([-159, -w/2-12.5, -10]) cube([232, 13.5, 30]);
+    	//translate([-159, -w/2-1, 0]) cube([232, 13.5, 30]);
 
     	//capital letters show up best in this font
-    	rotate([0, 180, 0]) {
+    	/*rotate([0, 180, 0]) {
     		translate([0, 0, -5]) linear_extrude(9) {
     			translate([0, 5, 0]) text("OPENBOOK", size=21, spacing=1.15, halign="center", font = "Plaster:style=Regular");
 
@@ -53,13 +57,14 @@ difference()
 	}
 }
 
-
+*/
+}
 /*difference()
 {
 	translate([-30, -w/2+4, -1.25]) cube([242, 15, 2.5], center=true);
 	lidHinge(HINGE_AX);
 	lidHinge(HINGE_BX);
-METAL_BUFFER = 20; //width of the border and struts	smallLidHinge(HINGE_CX);
+	smallLidHinge(HINGE_CX);
 }
 */
 //translate([69, -w/2-3.5, -2.5]) cube([25,8,6]);
@@ -70,7 +75,7 @@ METAL_BUFFER = 20; //width of the border and struts	smallLidHinge(HINGE_CX);
 //translate([HINGE_BX-3, 0, 0]) hingeMountPoint();
 //translate([HINGE_CX-3, 0, 0]) smallHingeMountPoint();
 //translate([HINGE_AX-3, 0, 0]) hingeMountPoint();
-unifiedHingeMountPoint();
+//unifiedHingeMountPoint();
 
 module laptopHingeA(x) {
         translate([0, -w/2+15, -5]) {

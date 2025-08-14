@@ -1,7 +1,6 @@
 l = 340;
 w = 220;
 h = 22;
-
 //enable if using offical rasbPi5 cooler or using the pcb mount holes.
 OFFICAL_PI_5_COOLER = false;
 PI_4_ETHERNET = false; //what side the rj-45 port of the sbc is on
@@ -17,6 +16,11 @@ LAPTOP_NORTH = w/2;
 LAPTOP_SOUTH = -w/2;
 LAPTOP_EAST = l/2;
 LAPTOP_WEETBIX = -l/2;
+
+NORTH = w/2;
+SOUTH = -w/2;
+EAST = l/2;
+WEETBIX = -l/2;
 
 //the zPos for if you want a component to sit flush with the bottom of the laptop.
 SURFACE_MOUNT = -h/2;
@@ -64,11 +68,14 @@ BMS_L = 56;
 BMS_W = 28.7;
 
 
-buckW = 20.5;
-buckL = 25.5;
+//BUCK_W = 20.5;
+//BUCK_L = 25.5;
 
-BUCK_X = 0;
-BUCK_Y = 0;
+BUCK_W = 24;
+BUCK_L = 54;
+
+BUCK_X = -50;
+BUCK_Y = -14;
 
 picoW = 50;
 picoL = 20;
@@ -91,6 +98,8 @@ sqrSupportH = 21;
 largeIntakeRadius = 4.65;
 smallIntakeRadius = 0;
 
+CORNER_SQR_S = 12; //s means size
+
 HEATSET_INSERT_HOLE = 2.1; //the pilot hole for M3 heatpress inserts
 
 LARGE_INTAKE_R = 4.65;
@@ -98,6 +107,9 @@ LARGE_INTAKE_R = 4.65;
 HINGE_AX = -150.5;
 HINGE_BX = -50;
 HINGE_CX = 20;
+
+HINGE_THCKNESS = 0;
+SMALL_HINGE_THICKNESS = 0;
 
 BULB_HOLDER_W = 33;
 BULB_HOLDER_H = 16.5;
@@ -111,5 +123,12 @@ VOLTO_W = 10;
 VOLTO_HOLE_DIST = 26; //dist between mount holes
 VOLTO_L = 22;
 
+ALUMINIUM_THICKNESS = 2;
 
+SCREEN_W = 0;
+SCREEN_H = 0;
+SCREEN_THICKNESS = 0;
+SCREEN_SCREW_W = 0; //the dimensions of the add ons with screw holes for the screen.
+SCREEN_SCREW_H = 0;
+SCREEN_EDP_X = 0; //the x of the edp connecter in the screen.
 

@@ -88,7 +88,7 @@ module m2Holder() {
 //Designed to support KB+TP & M3 heatpress threaded inserts.
 module cornerSqr(x, y) {
         difference() {
-            translate([x, y, SURFACE_MOUNT]) cube([12, 12, h+3-KB_PLATE_W]);
+            translate([x, y, SURFACE_MOUNT]) cube([CORNER_SQR_S, CORNER_SQR_S, h+3-KB_PLATE_W]);
             translate([x+6,y+6, 30]) cylinder(49, HEATSET_INSERT_HOLE, HEATSET_INSERT_HOLE, center=true);
         }
 }
